@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PalindromeChecker {
+public class PalindromeCheckerApp {
 
     static boolean checker(String str){
 
@@ -30,7 +30,7 @@ public class PalindromeChecker {
             System.out.println("|| Welcome to the PALINDROME CHECKER APPLICATION ||");
             System.out.println("===================================================");
             System.out.println("Version : 1.0");
-            System.out.println("Author : Harshal");
+            System.out.println("Author : ARYAN");
             System.out.println();
 
             System.out.println("Press 'E' to Exit");
