@@ -1,8 +1,15 @@
 import java.util.*;
 
-class PalindromeService{
+public class PalindromeChecker {
 
-    boolean checker(String str){
+    static boolean reverseMethod(String str){
+
+        String rev = new StringBuilder(str).reverse().toString();
+
+        return str.equals(rev);
+    }
+
+    static boolean twoPointerMethod(String str){
 
         int start = 0;
         int end = str.length()-1;
@@ -18,15 +25,10 @@ class PalindromeService{
 
         return true;
     }
-}
-
-public class PalindromeCheckerApp {
 
     public static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
-
-        PalindromeService service = new PalindromeService();
 
         while(true){
 
@@ -45,16 +47,21 @@ public class PalindromeCheckerApp {
             if(input.equalsIgnoreCase("E"))
                 break;
 
-            System.out.println("Enter the string to check");
+            System.out.println("Enter the string to test performance");
 
             String str = sc.nextLine();
 
-            boolean result = service.checker(str);
+            long start = System.nanoTime();
+            reverseMethod(str);
+            long end = System.nanoTime();
 
-            if(result)
-                System.out.println("The String is a Palindrome");
-            else
-                System.out.println("The String is not a Palindrome");
+            System.out.println("Reverse Method Time : " + (end-start) + " ns");
+
+            start = System.nanoTime();
+            twoPointerMethod(str);
+            end = System.nanoTime();
+
+            System.out.println("Two Pointer Method Time : " + (end-start) + " ns");
 
             System.out.println();
         }
