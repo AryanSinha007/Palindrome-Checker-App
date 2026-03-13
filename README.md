@@ -1,1 +1,1 @@
-# STEP
+# Palindrome Checker App
