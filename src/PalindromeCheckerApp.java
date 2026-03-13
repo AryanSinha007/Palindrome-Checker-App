@@ -1,18 +1,18 @@
 import java.util.*;
 
-public class PalindromeCheckerApp {
+public class PalindromeChecker {
 
     static boolean checker(String str){
 
-        Deque<Character> dq = new LinkedList<>();
+        LinkedList<Character> list = new LinkedList<>();
 
         for(char c : str.toCharArray()){
-            dq.addLast(c);
+            list.add(c);
         }
 
-        while(dq.size() > 1){
+        while(list.size() > 1){
 
-            if(dq.removeFirst() != dq.removeLast()){
+            if(list.removeFirst() != list.removeLast()){
                 return false;
             }
         }
@@ -30,7 +30,7 @@ public class PalindromeCheckerApp {
             System.out.println("|| Welcome to the PALINDROME CHECKER APPLICATION ||");
             System.out.println("===================================================");
             System.out.println("Version : 1.0");
-            System.out.println("Author : Aryan ");
+            System.out.println("Author : Harshal");
             System.out.println();
 
             System.out.println("Press 'E' to Exit");
