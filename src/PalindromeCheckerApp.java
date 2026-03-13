@@ -2,15 +2,23 @@ import java.util.*;
 
 public class PalindromeCheckerApp {
 
-    static boolean checker(String str, int start, int end){
+    static boolean checker(String str){
 
-        if(start >= end)
-            return true;
+        str = str.replaceAll("\\s","").toLowerCase();
 
-        if(str.charAt(start) != str.charAt(end))
-            return false;
+        int start = 0;
+        int end = str.length()-1;
 
-        return checker(str, start+1, end-1);
+        while(start < end){
+
+            if(str.charAt(start) != str.charAt(end))
+                return false;
+
+            start++;
+            end--;
+        }
+
+        return true;
     }
 
     public static void main(String[] args){
@@ -38,7 +46,7 @@ public class PalindromeCheckerApp {
 
             String str = sc.nextLine();
 
-            boolean result = checker(str,0,str.length()-1);
+            boolean result = checker(str);
 
             if(result)
                 System.out.println("The String is a Palindrome");
