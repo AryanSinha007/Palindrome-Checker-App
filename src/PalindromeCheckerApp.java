@@ -2,22 +2,15 @@ import java.util.*;
 
 public class PalindromeCheckerApp {
 
-    static boolean checker(String str){
+    static boolean checker(String str, int start, int end){
 
-        LinkedList<Character> list = new LinkedList<>();
+        if(start >= end)
+            return true;
 
-        for(char c : str.toCharArray()){
-            list.add(c);
-        }
+        if(str.charAt(start) != str.charAt(end))
+            return false;
 
-        while(list.size() > 1){
-
-            if(list.removeFirst() != list.removeLast()){
-                return false;
-            }
-        }
-
-        return true;
+        return checker(str, start+1, end-1);
     }
 
     public static void main(String[] args){
@@ -30,7 +23,7 @@ public class PalindromeCheckerApp {
             System.out.println("|| Welcome to the PALINDROME CHECKER APPLICATION ||");
             System.out.println("===================================================");
             System.out.println("Version : 1.0");
-            System.out.println("Author : ARYAN");
+            System.out.println("Author : Harshal");
             System.out.println();
 
             System.out.println("Press 'E' to Exit");
@@ -45,7 +38,7 @@ public class PalindromeCheckerApp {
 
             String str = sc.nextLine();
 
-            boolean result = checker(str);
+            boolean result = checker(str,0,str.length()-1);
 
             if(result)
                 System.out.println("The String is a Palindrome");
