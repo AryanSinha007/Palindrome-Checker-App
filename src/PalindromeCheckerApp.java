@@ -1,28 +1,61 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class PalindromeCheckerApp {
 
-    public static void main(String[] args) {
+    static boolean checker(String str){
 
-        Scanner scanner = new Scanner(System.in);
+        Deque<Character> dq = new LinkedList<>();
 
-        System.out.print("Enter a string: ");
-        String original = scanner.nextLine();
-
-        String reversed = "";
-
-        // Reverse string using for loop
-        for (int i = original.length() - 1; i >= 0; i--) {
-            reversed = reversed + original.charAt(i);   // String concatenation
+        for(char c : str.toCharArray()){
+            dq.addLast(c);
         }
 
-        // Compare original and reversed string
-        if (original.equals(reversed)) {
-            System.out.println("The given string is a Palindrome.");
-        } else {
-            System.out.println("The given string is NOT a Palindrome.");
+        while(dq.size() > 1){
+
+            if(dq.removeFirst() != dq.removeLast()){
+                return false;
+            }
         }
 
-        scanner.close();
+        return true;
+    }
+
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+
+        while(true){
+
+            System.out.println("===================================================");
+            System.out.println("|| Welcome to the PALINDROME CHECKER APPLICATION ||");
+            System.out.println("===================================================");
+            System.out.println("Version : 1.0");
+            System.out.println("Author : Aryan ");
+            System.out.println();
+
+            System.out.println("Press 'E' to Exit");
+            System.out.println("Or Press Any Key To Continue");
+
+            String input = sc.nextLine();
+
+            if(input.equalsIgnoreCase("E"))
+                break;
+
+            System.out.println("Enter the string to check");
+
+            String str = sc.nextLine();
+
+            boolean result = checker(str);
+
+            if(result)
+                System.out.println("The String is a Palindrome");
+            else
+                System.out.println("The String is not a Palindrome");
+
+            System.out.println();
+        }
+
+        System.out.println("Thanks For Using The App");
+        System.out.println("Exiting...");
     }
 }
